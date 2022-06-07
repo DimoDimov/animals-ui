@@ -46,4 +46,14 @@ describe('/', function () {
       .get('/animals/delete/123')
       .expect(302)
   })
+
+  it('should delete an animal', function () {
+    return request(app)
+      .get('/animals/search?query=123')
+      .expect(200)
+      .then(data => {
+        expect(data.text).toContain('Animal')
+        expect(data.text).toContain('Description')
+      })
+  })
 })

@@ -17,8 +17,6 @@ export const getAnimalTypes = (req, res) =>
 
 export const addPage = async (req, res) => {
   const animalTypes = await getAnimalTypes();
-  console.log('animal types: ', animalTypes);
-
   res.render('add-animal', { animalTypes })
 }
 
@@ -26,6 +24,12 @@ export function get(req, res) {
   animals
     .get(req.params.id)
     .then((data) => { res.render('view-animal', { animal: data }) })
+}
+
+export const query = (req, res) => {
+  animals
+    .search(req.query.query)
+    .then((data) => { res.render('animals', { animals: data }) })
 }
 
 export const add = (req, res) => {
