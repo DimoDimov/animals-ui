@@ -10,7 +10,6 @@ let item = { name: 'Tom', description: 'Friend of Jerry' }
 describe('animals', function () {
 
   it('get create a animal', function () {
-
     return service.create(item).then((data) => {
       expect(data.name).toEqual(item.name)
       expect(data.description).toEqual(item.description)
@@ -45,4 +44,10 @@ describe('animals', function () {
       expect(data.length).toBeGreaterThan(0)
     })
   )
+
+  it('search animals', () =>
+    service.search('jerry').then((data) => {
+      expect(data.length).toEqual(1)
+  })
+)
 })

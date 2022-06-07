@@ -6,6 +6,13 @@ class WebService {
     this.agent = superagent
   }
 
+  search (query) {
+    return this.agent
+      .get(`${this.url}/query/${query}`)
+      .then((data) => { return data.body })
+  }
+
+
   all () {
     return this.agent
       .get(this.url)
