@@ -46,7 +46,7 @@ describe('animals', function () {
   )
 
   it('search animals', () =>
-    service.search('jerry').then((data) => {
+    service.search('Smelly').then((data) => {
       expect(data.length).toEqual(1)
   })
 )
